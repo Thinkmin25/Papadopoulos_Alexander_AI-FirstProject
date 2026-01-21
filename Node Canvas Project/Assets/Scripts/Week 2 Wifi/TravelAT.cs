@@ -1,20 +1,19 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
-using UnityEditor.MemoryProfiler;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class UpdateConnectionAT : ActionTask {
+	public class TravelAT : ActionTask {
 
-        public BBParameter<float> connection;
-        public BBParameter<float> wifi;
-		public BBParameter<Vector3> wifiPos;
+		public BBParameter<float> distance;
+		public BBParameter<float> moveSpeed;
+		float unitsTravelled;
 
-        //Use for initialization. This is called only once in the lifetime of the task.
-        //Return null if init was successfull. Return an error string otherwise
-        protected override string OnInit() {
+		//Use for initialization. This is called only once in the lifetime of the task.
+		//Return null if init was successfull. Return an error string otherwise
+		protected override string OnInit() {
 			return null;
 		}
 
@@ -22,18 +21,18 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-
+			unitsTravelled = 0f;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			wifi.value = Vector3.Distance(agent.transform.position, wifiPos.value);
-            connection.value += (wifi.value / 2) - 0.5f;
-            if (connection.value > 10)
+			unitsTravelled += moveSpeed.value * Time.deltaTime;
+			agent.transform.position += agent.transform.forward * moveSpeed.value * Time.deltaTime;
+			if (unitsTravelled > distance.value)
 			{
 				EndAction();
 			}
-        }
+		}
 
 		//Called when the task is disabled.
 		protected override void OnStop() {
