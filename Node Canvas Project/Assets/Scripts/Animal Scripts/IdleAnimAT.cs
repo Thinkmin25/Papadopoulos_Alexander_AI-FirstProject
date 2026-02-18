@@ -7,7 +7,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class IdleAnimAT : ActionTask {
 
-        public Transform headTransform;
+        Transform headTransform;
 		float rotateX = 0;
 		float rotateY = 0;
 

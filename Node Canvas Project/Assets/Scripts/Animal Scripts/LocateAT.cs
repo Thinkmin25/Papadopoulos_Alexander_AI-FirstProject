@@ -9,11 +9,12 @@ namespace NodeCanvas.Tasks.Actions {
 	public class LocateAT : ActionTask {
 
 		float sightRange = 1;
-		public float growRate = 2;
+		public float growRate = 5;
 		NavMeshAgent navAgent;
 		int layerMask = 1 << 9;
 
 		public BBParameter<bool> foundTarget;
+		public BBParameter<GameObject> targetGO;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -35,12 +36,13 @@ namespace NodeCanvas.Tasks.Actions {
 			if (!navAgent.hasPath)
 			{
                 Debug.Log(navAgent.hasPath + " " + sightRange);
-                if (Physics.SphereCast(agent.transform.position, sightRange, Vector3.one, out var hit, 0.1f, layerMask, QueryTriggerInteraction.Collide))
+                if (Physics.SphereCast(agent.transform.position, sightRange, Vector3.one, out var hit, 0.5f, layerMask, QueryTriggerInteraction.Collide))
                 {
                     Debug.Log("cool " + hit.point + hit.collider);
-					NavMesh.SamplePosition(hit.point, out var target, 1, NavMesh.AllAreas);
+					NavMesh.SamplePosition(hit.point, out var target, 5, NavMesh.AllAreas);
 					if (navAgent.SetDestination(target.position))
 					{
+						targetGO.SetValue(hit.collider.gameObject);
 						Debug.Log(target.position);
                         foundTarget.SetValue(true);
                     }
@@ -52,7 +54,7 @@ namespace NodeCanvas.Tasks.Actions {
 			         
             for (int i = 0; i < 16; i++)
             {
-                Debug.DrawLine(agent.transform.position + new Vector3(Mathf.Cos(i * 2 * Mathf.PI / 16) * sightRange, agent.transform.position.y, Mathf.Sin(i * 2 * Mathf.PI / 16) * sightRange), agent.transform.position + new Vector3(Mathf.Cos((i + 1) % 16 * 2 * Mathf.PI / 16) * sightRange, agent.transform.position.y,Mathf.Sin((i + 1) % 16 * 2 * Mathf.PI / 16) * sightRange));
+                Debug.DrawLine(agent.transform.position - agent.transform.up + new Vector3(Mathf.Cos(i * 2 * Mathf.PI / 16) * sightRange, agent.transform.position.y, Mathf.Sin(i * 2 * Mathf.PI / 16) * sightRange), agent.transform.position - agent.transform.up + new Vector3(Mathf.Cos((i + 1) % 16 * 2 * Mathf.PI / 16) * sightRange, agent.transform.position.y,Mathf.Sin((i + 1) % 16 * 2 * Mathf.PI / 16) * sightRange));
 
             }
         }

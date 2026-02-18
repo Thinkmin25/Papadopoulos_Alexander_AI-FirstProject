@@ -7,7 +7,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class SwimAnimAT : ActionTask {
 
-        public Transform[] joints = new Transform[5];
+        Transform[] joints = new Transform[5];
         Vector3 jointMovement = Vector3.zero;
         Vector3 tailMovement = Vector3.zero;
 
@@ -24,7 +24,7 @@ namespace NodeCanvas.Tasks.Actions {
                 {
                     joints[arrayCount] = joint;
                     arrayCount++;
-                    if (joint.gameObject.tag == "Tail")
+                    if (joint.gameObject.name == "Tail Base")
                     {
                         joints[4] = joint;
                         

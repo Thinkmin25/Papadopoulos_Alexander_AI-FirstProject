@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class EdiblePlant : MonoBehaviour
 {
-    public float foodValue = 10;
+    public float resourceValue = 10;
     RespawnPlant respawnScript;
+    public bool isTree;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,11 +15,11 @@ public class EdiblePlant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector3.one * foodValue * 0.2f;
-        if (foodValue < 0)
+        //transform.localScale = Vector3.one * resourceValue * 0.2f;
+        if (resourceValue < 0)
         {
             respawnScript.Respawn();
-            foodValue = 10;
+            resourceValue = 10;
         }
     }
 }
