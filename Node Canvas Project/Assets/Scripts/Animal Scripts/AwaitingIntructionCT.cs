@@ -11,11 +11,18 @@ namespace NodeCanvas.Tasks.Conditions {
         public BBParameter<GameObject> targetGO;
 		public string gameObjectName;
 		NavMeshAgent navAgent;
+		int sauce1 = 1;
+		int sauce2 = 2;
+		int sauce3 = 3;
+		int[] awesome;
+		
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit(){
 			navAgent = agent.GetComponent<NavMeshAgent>();
+			awesome = new int[3] {sauce1,sauce2,sauce3};
+
 			return null;
 		}
 

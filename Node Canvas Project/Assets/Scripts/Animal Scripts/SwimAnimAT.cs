@@ -22,12 +22,15 @@ namespace NodeCanvas.Tasks.Actions {
             {
                 if (joint.gameObject.tag == "Joint")
                 {
-                    joints[arrayCount] = joint;
-                    arrayCount++;
                     if (joint.gameObject.name == "Tail Base")
                     {
                         joints[4] = joint;
                         
+                    }
+                    else
+                    {
+                        joints[arrayCount] = joint;
+                        arrayCount++;
                     }
                     if (arrayCount == 4 && joints[4])
                     {

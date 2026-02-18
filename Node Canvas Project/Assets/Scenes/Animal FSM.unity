@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156677886}
   - component: {fileID: 156677885}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Unwalkable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,10 @@ GameObject:
   - component: {fileID: 355133329}
   - component: {fileID: 355133328}
   - component: {fileID: 355133327}
-  m_Layer: 0
+  - component: {fileID: 355133333}
+  - component: {fileID: 355133332}
+  - component: {fileID: 355133331}
+  m_Layer: 11
   m_Name: Dam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,6 +611,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &355133331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355133326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
+--- !u!114 &355133332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355133326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: 
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 0
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 11400000, guid: 042bbd8d94f052b4db40b8be1b17c9b1, type: 2}
+  _blackboard: {fileID: 355133331}
+--- !u!114 &355133333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355133326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241f5e64eccbaf498774121e796776a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beaverBB: {fileID: 0}
+  damBuildValue: 0
 --- !u!1 &530438243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1179,7 @@ GameObject:
   - component: {fileID: 1021702381}
   m_Layer: 0
   m_Name: Tail Base
-  m_TagString: Untagged
+  m_TagString: Joint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1477,7 +1539,7 @@ GameObject:
   - component: {fileID: 1364986675}
   - component: {fileID: 1364986680}
   - component: {fileID: 1364986679}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2411,6 +2473,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"woodInventory":{"_name":"woodInventory","_id":"1d5fea29-a0c1-470e-9bba-619b5030cd16","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetGameObject":{"_name":"targetGameObject","_id":"f4f6e9b7-6263-45b4-9e88-57a9178a7d15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"foundTarget":{"_name":"foundTarget","_id":"572b98b6-ee2e-4902-8855-33410c76e675","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"scared":{"_name":"scared","_id":"9f87dc0e-f393-422e-bbc6-c582caa68649","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -2439,6 +2502,9 @@ MonoBehaviour:
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_name":"foundTarget","_id":"572b98b6-ee2e-4902-8855-33410c76e675","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"scared","_id":"9f87dc0e-f393-422e-bbc6-c582caa68649","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &1755811194
