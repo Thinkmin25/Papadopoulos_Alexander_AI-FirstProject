@@ -16,10 +16,24 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<float> fearMax;
 		public BBParameter<bool> scared;
 
+		public Material beaverMat;
+		public Material scaredMat;
+
+		public MeshRenderer headMesh;
+
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
-			return null;
+            var tempArray = agent.GetComponentsInChildren<MeshRenderer>();
+            foreach (var mr in tempArray)
+            {
+                if (mr.gameObject.tag == "Head")
+                {
+                    headMesh = mr;
+                    break;
+                }
+            }
+            return null;
 		}
 
 		//This is called once each time the task is enabled.
@@ -38,6 +52,7 @@ namespace NodeCanvas.Tasks.Actions {
 				{
 					fearValue.SetValue(0);
 					scared.SetValue(false);
+					headMesh.material = beaverMat;
 				}
 			}
 			else
@@ -45,6 +60,7 @@ namespace NodeCanvas.Tasks.Actions {
                 if (fearValue.value >= fearMax.value)
                 {
                     scared.SetValue(true);
+					headMesh.material = scaredMat;
                 }
             }
 

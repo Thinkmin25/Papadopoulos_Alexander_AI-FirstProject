@@ -1920,7 +1920,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"teethDecay":{"_value":1.0,"_name":"teethDecay","_id":"878a29b1-0fa5-4dcf-af94-03fe2df5038c","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"teethThreshold":{"_value":50.0,"_name":"teethThreshold","_id":"30520553-c229-469b-acf6-bec2ad1125a9","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"woodInventory":{"_name":"woodInventory","_id":"1d5fea29-a0c1-470e-9bba-619b5030cd16","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetGameObject":{"_name":"targetGameObject","_id":"f4f6e9b7-6263-45b4-9e88-57a9178a7d15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetGO":{"_name":"targetGO","_id":"f4f6e9b7-6263-45b4-9e88-57a9178a7d15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"foundTarget":{"_name":"foundTarget","_id":"572b98b6-ee2e-4902-8855-33410c76e675","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fearValue":{"_name":"fearValue","_id":"656722d1-91f5-46f4-b5f5-8bb37cf7d941","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fearMax":{"_value":9.0,"_name":"fearMax","_id":"0f569dfb-c8dd-41e4-ad3b-0d63e5906ab7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   - _json: '{"_name":"woodInventory","_id":"1d5fea29-a0c1-470e-9bba-619b5030cd16","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_name":"targetGameObject","_id":"f4f6e9b7-6263-45b4-9e88-57a9178a7d15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+  - _json: '{"_name":"targetGO","_id":"f4f6e9b7-6263-45b4-9e88-57a9178a7d15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_name":"foundTarget","_id":"572b98b6-ee2e-4902-8855-33410c76e675","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
