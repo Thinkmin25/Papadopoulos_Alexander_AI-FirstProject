@@ -9,10 +9,12 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<float> foodNeed;
 		public BBParameter<float> foodDecay;
 
-
         public BBParameter<float> teethNeed;
 		public BBParameter<float> teethDecay;
 
+		public BBParameter<float> fearValue;
+		public BBParameter<float> fearMax;
+		public BBParameter<bool> scared;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -29,7 +31,24 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			foodNeed.value -= Time.deltaTime * foodDecay.value;
+			if (scared.value)
+			{
+				fearValue.SetValue(fearValue.value - Time.deltaTime);
+				if (fearValue.value < 0)
+				{
+					fearValue.SetValue(0);
+					scared.SetValue(false);
+				}
+			}
+			else
+			{
+                if (fearValue.value >= fearMax.value)
+                {
+                    scared.SetValue(true);
+                }
+            }
+
+				foodNeed.value -= Time.deltaTime * foodDecay.value;
 			if (foodNeed.value > 100)
 			{
 				foodNeed.value = 100;
