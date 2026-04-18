@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 1364986675}
   - component: {fileID: 1364986680}
   - component: {fileID: 1364986679}
+  - component: {fileID: 1364986681}
   m_Layer: 10
   m_Name: Tree
   m_TagString: Untagged
@@ -1253,6 +1254,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceValue: 10
   isTree: 1
+--- !u!195 &1364986681
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364986674}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 0
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.0000002
+  m_BaseOffset: 0.5000001
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1370360238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1948,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fearValue":{"_name":"fearValue","_id":"656722d1-91f5-46f4-b5f5-8bb37cf7d941","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fearMax":{"_value":9.0,"_name":"fearMax","_id":"0f569dfb-c8dd-41e4-ad3b-0d63e5906ab7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"scared":{"_name":"scared","_id":"92cc13db-77e8-4a77-88d5-ba88e44794c7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"searching":{"_name":"searching","_id":"6c3e3711-b722-4874-a17b-d42d24904a3d","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -1962,6 +1986,9 @@ MonoBehaviour:
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"scared","_id":"92cc13db-77e8-4a77-88d5-ba88e44794c7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"searching","_id":"6c3e3711-b722-4874-a17b-d42d24904a3d","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &1755811194

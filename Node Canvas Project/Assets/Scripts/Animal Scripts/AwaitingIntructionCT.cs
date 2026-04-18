@@ -9,7 +9,7 @@ namespace NodeCanvas.Tasks.Conditions {
 	public class AwaitingIntructionCT : ConditionTask {
 
         public BBParameter<GameObject> targetGO;
-		public LayerMask targetMask;
+		public int targetMask;
 		NavMeshAgent navAgent;
 		
 		
@@ -38,7 +38,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		protected override bool OnCheck() {
 			if (targetGO.value != null)
 			{
-				Debug.Log((targetGO.value.layer == targetMask) + " " + (navAgent.remainingDistance < 1f));
+				Debug.Log((targetGO.value.layer == targetMask) + " " + (navAgent.remainingDistance < 1f) + " " + targetGO.value.layer);
 				if (targetGO.value.layer == targetMask && navAgent.remainingDistance < 1f)
 				{
 					return true;

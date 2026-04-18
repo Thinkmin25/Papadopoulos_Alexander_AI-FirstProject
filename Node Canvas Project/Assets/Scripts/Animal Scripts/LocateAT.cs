@@ -22,6 +22,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<float> teethThreshold;
 		public BBParameter<float> woodInventory;
 		public BBParameter<GameObject> dam;
+		public BBParameter<bool> isSearching;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -35,6 +36,8 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
             sightRange = 1;
+			isSearching.value = true;
+			targetGO.value = null;
 		}
 
 		//Called once per frame while the action is active.
@@ -54,9 +57,10 @@ namespace NodeCanvas.Tasks.Actions {
 			}
 
 				sightRange += Time.deltaTime * growRate;
-			if (!navAgent.hasPath)
+            Debug.Log(navAgent.hasPath + " " + sightRange);
+            if (!navAgent.hasPath)
 			{
-                Debug.Log(navAgent.hasPath + " " + sightRange);
+                
                 if (Physics.SphereCast(agent.transform.position, sightRange, Vector3.one, out var hit, 0.5f, layerMask, QueryTriggerInteraction.Collide))
                 {
                     Debug.Log("cool " + hit.point + hit.collider);
@@ -66,6 +70,7 @@ namespace NodeCanvas.Tasks.Actions {
 						targetGO.SetValue(hit.collider.gameObject);
 						Debug.Log(target.position);
                         foundTarget.SetValue(true);
+						isSearching.value = false;
                     }
                     Debug.Log(navAgent.hasPath + " " + navAgent.destination);
                     
